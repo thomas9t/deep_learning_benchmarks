@@ -1,0 +1,7 @@
+*.pyc
+*.jar
+*.class
+prediction.dml
+*.proto
+tmp_dir
+scratch_space

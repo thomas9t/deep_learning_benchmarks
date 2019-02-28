@@ -20,7 +20,7 @@
 #
 #-------------------------------------------------------------
 
-SPARK_HOME=/home/npansar/spark-2.3.0-bin-hadoop2.7
+SPARK_HOME=/storage/spark-2.4.0-bin-hadoop2.7
 $SPARK_HOME/bin/spark-submit --driver-memory 200g generate_script.py
 
 START=$(date +%s)
@@ -36,3 +36,5 @@ DIFF2=$(python -c "print(${END} - ${START})")
 echo "-------------------------------------------"
 echo "Time: SystemML="$DIFF1", TensorFlow="$DIFF2
 echo "-------------------------------------------"
+
+javac -cp "*" JMLCExecutor.java
