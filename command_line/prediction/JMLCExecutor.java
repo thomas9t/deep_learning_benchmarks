@@ -35,13 +35,15 @@ public class JMLCExecutor {
         PreparedScript ps = conn.prepareScript(
             script, allInputs, new String[] {"Prob"}, true, true, 0);
         System.out.println(ps.explain());
+        ps.setStatistics(true);
 
-        for (String m : matrixNames)
-            ps.setMatrix(m, MM.get(m), true);
+        // for (String m : matrixNames)
+        //     ps.setMatrix(m, MM.get(m), true);
 
         long start = System.nanoTime();
         ps.executeScript();
         System.err.println("JMLC TIME: " + (System.nanoTime() - start));
+        System.err.println(ps.statistics());
     }
 
     private static HashMap<String,MatrixBlock> 
